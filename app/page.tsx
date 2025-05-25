@@ -53,7 +53,7 @@ export default function Home() {
         </div>
       </section>
 
-      {/* Meet the Pastor Section - Now as a full-width banner */}
+      {/* Meet the Pastor Section */}
       <section className="relative py-24 bg-gray-50">
         <div className="max-w-7xl mx-auto px-4">
           <div className="relative bg-white rounded-lg shadow-2xl overflow-hidden">
@@ -74,9 +74,12 @@ export default function Home() {
                   viewport={{ once: true }}
                   transition={{ duration: 0.5 }}
                 >
-                  <h2 className="font-playfair text-4xl text-primary mb-6">
+                  <h2 className="font-playfair text-4xl text-primary mb-2">
                     Meet Our Pastor
                   </h2>
+                  <h3 className="font-opensans text-2xl text-primary font-semibold mb-4">
+                    Michael Soop
+                  </h3>
                   <p className="font-opensans text-gray-600 text-lg mb-8 leading-relaxed">
                     Leading our congregation with wisdom, compassion, and a deep commitment
                     to Christ's teachings. Our pastor brings years of experience in
@@ -91,6 +94,7 @@ export default function Home() {
                     </Link>
                   </div>
                 </motion.div>
+
               </div>
             </div>
           </div>
@@ -117,7 +121,7 @@ export default function Home() {
               },
               {
                 title: "SimpleSteps",
-                image: "kids-3.jpg",
+                image: "/simplestepslogo.png",
                 description: "A ministry focused on helping individuals break free from addiction and take simple steps toward a deeper relationship with Christ"
               }
             ].map((program, index) => (
@@ -134,7 +138,7 @@ export default function Home() {
                     src={`/images/${program.image}`}
                     alt={program.title}
                     fill
-                    className="object-cover"
+                    className="object-contain p-4 bg-white"
                   />
                 </div>
                 <div className="p-6">

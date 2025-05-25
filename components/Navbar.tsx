@@ -2,6 +2,7 @@
 
 import { useState } from 'react';
 import Link from 'next/link';
+import Image from 'next/image';
 import { motion, AnimatePresence } from 'framer-motion';
 import { Bars3Icon, XMarkIcon } from '@heroicons/react/24/outline';
 
@@ -28,10 +29,10 @@ const navigation = [
     items: [
       { name: "Children's Ministry", href: '/ministries/children' },
       { name: 'Community Prayer Gathering', href: '/ministries/prayer' },
-      { 
-        name: 'SimpleSteps', 
+      {
+        name: 'SimpleSteps',
         href: 'https://gotanaddiction.com',
-        external: true 
+        external: true
       }
     ]
   },
@@ -49,15 +50,22 @@ export default function Navbar() {
   return (
     <nav className="bg-white shadow-lg fixed w-full z-50">
       <div className="max-w-7xl mx-auto px-4">
-        <div className="flex justify-between h-20">
+        <div className="flex flex-wrap md:flex-nowrap justify-between items-center gap-y-2 h-auto md:h-20 py-3 md:py-0">
+          {/* Logo */}
           <div className="flex-shrink-0 flex items-center">
-            <Link href="/" className="font-playfair text-2xl text-primary">
-              NCBC
+            <Link href="/" className="flex items-center space-x-2">
+              <Image
+                src="/images/church-logo.png"
+                alt="New Canaan Baptist Church"
+                width={210}
+                height={40}
+                priority
+              />
             </Link>
           </div>
 
           {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center space-x-8">
+          <div className="hidden md:flex items-center space-x-8 flex-1 justify-center">
             {navigation.map((item) => (
               <div
                 key={item.name}
@@ -94,19 +102,30 @@ export default function Navbar() {
                 )}
               </div>
             ))}
-            
+          </div>
+
+          {/* Action Buttons */}
+          <div className="flex space-x-2">
             <Link
-              href="https://www.paypal.com/donate?token=We8FRvSo7MZrXbs77XHXQBCx6yG1QpYVmnwnzUBHNgSgYeb58gZ2N4u0KWFibIOHLalnlkIhrW935pxW"
+              href="https://www.youtube.com/@mynewcanaan/streams"
               target="_blank"
               rel="noopener noreferrer"
-              className="btn-secondary"
+              className="bg-[#1a365d] hover:bg-[#153e75] text-white font-bold py-2 px-4 rounded-lg shadow-md text-sm md:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+            >
+              Watch Live
+            </Link>
+            <Link
+              href="https://www.paypal.com/donate?hosted_button_id=DZHZCJQDXFM52"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="bg-[#1a365d] hover:bg-[#153e75] text-white font-bold py-2 px-4 rounded-lg shadow-md text-sm md:text-base transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
             >
               Give Online
             </Link>
           </div>
 
           {/* Mobile menu button */}
-          <div className="md:hidden flex items-center">
+          <div className="md:hidden flex items-center ml-auto">
             <button
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-600 hover:text-gray-900 focus:outline-none"
@@ -143,7 +162,7 @@ export default function Navbar() {
                   >
                     {item.name}
                   </button>
-                  
+
                   {item.dropdown && activeDropdown === item.name && (
                     <div className="pl-4">
                       {item.items?.map((subItem) => (
@@ -161,14 +180,24 @@ export default function Navbar() {
                   )}
                 </div>
               ))}
-              <Link
-                href="https://www.paypal.com/donate?token=We8FRvSo7MZrXbs77XHXQBCx6yG1QpYVmnwnzUBHNgSgYeb58gZ2N4u0KWFibIOHLalnlkIhrW935pxW"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="block w-full text-center px-3 py-2 text-base font-medium bg-secondary text-white rounded-md"
-              >
-                Give Online
-              </Link>
+              <div className="flex flex-col gap-2 mt-4">
+                <Link
+                  href="https://www.youtube.com/@mynewcanaan/streams"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-4 py-3 text-base font-bold bg-[#1a365d] hover:bg-[#153e75] text-white rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                >
+                  Watch Live
+                </Link>
+                <Link
+                  href="https://www.paypal.com/donate?hosted_button_id=DZHZCJQDXFM52"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block w-full text-center px-4 py-3 text-base font-bold bg-[#1a365d] hover:bg-[#153e75] text-white rounded-lg shadow-md transition-all duration-300 transform hover:scale-105 hover:shadow-xl"
+                >
+                  Give Online
+                </Link>
+              </div>
             </div>
           </motion.div>
         )}

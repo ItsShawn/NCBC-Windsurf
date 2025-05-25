@@ -8,35 +8,23 @@ export default function CommunityPrayer() {
   return (
     <main className="pt-20">
       {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px]">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/prayer.jpg"
-            alt="Community Prayer Gathering at New Canaan Baptist Church"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        <div className="relative h-full flex items-center justify-center text-white">
-          <div className="text-center px-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-playfair text-4xl md:text-5xl mb-4"
-            >
-              Community Prayer Gathering
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="font-opensans text-xl max-w-2xl mx-auto"
-            >
-              Coming together in prayer, strengthening our community in faith
-            </motion.p>
-          </div>
+      <section className="bg-[#1a365d] py-16">
+        <div className="max-w-4xl mx-auto text-center text-white px-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-playfair text-4xl md:text-5xl mb-4"
+          >
+            Community Prayer Gathering
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-opensans text-xl max-w-2xl mx-auto"
+          >
+            Coming together in prayer, strengthening our community in faith
+          </motion.p>
         </div>
       </section>
 
@@ -49,15 +37,6 @@ export default function CommunityPrayer() {
               Every Wednesday at noon, our church family comes together for a powerful time of community prayer. This gathering is more than just a prayer meeting—it's a time of spiritual growth, mutual support, and experiencing God's presence together.
             </p>
 
-            <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">What to Expect</h3>
-            <ul>
-              <li>Warm, welcoming environment in our church parking lot</li>
-              <li>Structured and open prayer times</li>
-              <li>Scripture-based prayer focus</li>
-              <li>Opportunity to share prayer requests</li>
-              <li>Time for testimonies and praise reports</li>
-            </ul>
-
             <div className="my-12">
               <Image
                 src="/images/prayer-2.jpg"
@@ -67,6 +46,15 @@ export default function CommunityPrayer() {
                 className="rounded-lg shadow-lg"
               />
             </div>
+
+            <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">What to Expect</h3>
+            <ul>
+              <li>Warm, welcoming environment in our church parking lot</li>
+              <li>Structured and open prayer times</li>
+              <li>Scripture-based prayer focus</li>
+              <li>Opportunity to share prayer requests</li>
+              <li>Time for testimonies and praise reports</li>
+            </ul>
 
             <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">Prayer Focus Areas</h3>
             <p>

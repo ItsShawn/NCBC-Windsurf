@@ -122,9 +122,14 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-playfair text-xl text-primary mb-4">Service Times</h3>
                 <ul className="space-y-2 text-gray-600">
-                  <li>Sunday School: 9:30 AM</li>
-                  <li>Sunday Worship: 10:45 AM</li>
-                  <li>Wednesday Bible Study: 7:00 PM</li>
+                  <li>Sunday School: 9:45 AM</li>
+                  <li>Sunday Morning Service: 10:45 AM</li>
+                  <li>Choir Practice: 4:30 PM</li>
+                  <li>Sunday Evening Service: 5:00 PM</li>
+                  <br />
+                  <li>Wednesday Fellowship Dinner: 6:00 PM</li>
+                  <li>Wednesday Kid's Program: 6:30 PM</li>
+                  <li>Wednesday Adult Bible Study: 7:00 PM</li>
                 </ul>
               </div>
 
@@ -139,6 +144,7 @@ export default function ContactSection() {
               <div>
                 <h3 className="font-playfair text-xl text-primary mb-4">Contact</h3>
                 <ul className="space-y-2 text-gray-600">
+                  <li>Pastor Michael Soop</li>
                   <li>Phone: (770) 962-2335</li>
                   <li>Email: pastor@mynewcanaan.org</li>
                 </ul>

@@ -26,20 +26,18 @@ export default function Contact() {
       {/* Contact Section */}
       <ContactSection />
 
-      {/* Map Section */}
+      {/* Directions Section */}
       <section className="py-16 bg-white">
-        <div className="max-w-7xl mx-auto px-4">
-          <h2 className="font-playfair text-3xl text-primary mb-8 text-center">Find Us</h2>
-          <div className="aspect-w-16 aspect-h-9 rounded-lg overflow-hidden shadow-lg">
-            <iframe
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2856067437164!2d-83.9892!3d33.9892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5bf55555555%3A0x555555555555555!2s922%20Hi%20Hope%20Rd%2C%20Lawrenceville%2C%20GA%2030043!5e0!3m2!1sen!2sus!4v1551234567890!5m2!1sen!2sus"
-              width="100%"
-              height="450"
-              style={{ border: 0 }}
-              allowFullScreen
-              loading="lazy"
-              referrerPolicy="no-referrer-when-downgrade"
-            />
+        <div className="max-w-4xl mx-auto px-4">
+          <h2 className="font-playfair text-3xl text-primary mb-6 text-center">Getting to New Canaan</h2>
+          <p className="font-opensans text-gray-700 text-lg leading-relaxed">
+            Our church is located at <strong>922 Hi Hope Rd, Lawrenceville, GA 30043</strong>, just a few minutes off Highway 316 and convenient to I-85.
+          </p>
+
+          <div className="mt-6 space-y-4 text-gray-700 text-base">
+            <p><strong>If you're coming from I-85:</strong> Take Exit 106 for GA-316 E toward Lawrenceville/Athens. Continue for about 5.5 miles, then take the GA-120 exit toward Lawrenceville/Duluth. Turn right onto GA-120 E/W Pike St. After about 1.5 miles, turn left onto Hi Hope Rd. The church will be on your right.</p>
+
+            <p><strong>If you're coming from Sugarloaf Parkway:</strong> Head east on Sugarloaf Pkwy and turn right onto GA-120 E. After passing downtown Lawrenceville, turn left onto Hi Hope Rd. The church will be a short drive down on the right-hand side.</p>
           </div>
         </div>
       </section>

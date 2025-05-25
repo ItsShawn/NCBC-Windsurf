@@ -1,41 +1,28 @@
 'use client';
 
 import { motion } from 'framer-motion';
-import Image from 'next/image';
 
 export default function WhatToWear() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[40vh] min-h-[300px]">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/welcome.jpg"
-            alt="Welcome to New Canaan Baptist Church"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        <div className="relative h-full flex items-center justify-center text-white">
-          <div className="text-center px-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-playfair text-4xl md:text-5xl mb-4"
-            >
-              What to Wear
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="font-opensans text-xl max-w-2xl mx-auto"
-            >
-              Come as you are, it's your heart that matters
-            </motion.p>
-          </div>
+      {/* Hero Section with compact blue background */}
+      <section className="bg-[#1a365d] text-white py-16">
+        <div className="text-center px-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-playfair text-4xl md:text-5xl mb-4"
+          >
+            What to Wear
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-opensans text-xl max-w-2xl mx-auto"
+          >
+            Come as you are, it's your heart that matters
+          </motion.p>
         </div>
       </section>
 

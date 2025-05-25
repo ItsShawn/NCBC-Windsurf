@@ -6,36 +6,24 @@ import Image from 'next/image';
 export default function WhoWeAre() {
   return (
     <main className="pt-20">
-      {/* Hero Section */}
-      <section className="relative h-[50vh] min-h-[400px]">
-        <div className="absolute inset-0">
-          <Image
-            src="/images/church-front.jpg"
-            alt="New Canaan Baptist Church"
-            fill
-            className="object-cover"
-            priority
-          />
-          <div className="absolute inset-0 bg-black bg-opacity-50" />
-        </div>
-        <div className="relative h-full flex items-center justify-center text-white">
-          <div className="text-center px-4">
-            <motion.h1 
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              className="font-playfair text-4xl md:text-5xl mb-4"
-            >
-              Who We Are
-            </motion.h1>
-            <motion.p
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.2 }}
-              className="font-opensans text-xl max-w-2xl mx-auto"
-            >
-              A community of believers serving Christ in Lawrenceville
-            </motion.p>
-          </div>
+      {/* Hero Section with solid blue background and reduced height */}
+      <section className="bg-[#1a365d] text-white py-16">
+        <div className="text-center px-4">
+          <motion.h1 
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            className="font-playfair text-4xl md:text-5xl mb-4"
+          >
+            Who We Are
+          </motion.h1>
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ delay: 0.2 }}
+            className="font-opensans text-xl max-w-2xl mx-auto"
+          >
+            A community of believers serving Christ in Lawrenceville
+          </motion.p>
         </div>
       </section>
 
@@ -64,8 +52,8 @@ export default function WhoWeAre() {
                   />
                 </div>
                 <div className="p-6">
-                  <h4 className="font-playfair text-xl text-primary mb-2">Pastor Michael Soop</h4>
-                  <p className="text-gray-600">Senior Pastor</p>
+                  <h4 className="font-playfair text-xl text-primary mb-2">Michael Soop</h4>
+                  <p className="text-gray-600">Pastor</p>
                 </div>
               </div>
 

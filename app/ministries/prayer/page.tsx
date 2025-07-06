@@ -37,6 +37,7 @@ export default function CommunityPrayer() {
               Every Wednesday at noon, our church family comes together for a powerful time of community prayer. This gathering is more than just a prayer meeting—it's a time of spiritual growth, mutual support, and experiencing God's presence together.
             </p>
 
+            {/* 
             <div className="my-12">
               <Image
                 src="/images/prayer-2.jpg"
@@ -46,6 +47,7 @@ export default function CommunityPrayer() {
                 className="rounded-lg shadow-lg"
               />
             </div>
+            */}
 
             <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">What to Expect</h3>
             <ul>

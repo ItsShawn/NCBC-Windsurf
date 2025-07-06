@@ -124,12 +124,11 @@ export default function ContactSection() {
                 <ul className="space-y-2 text-gray-600">
                   <li>Sunday School: 9:45 AM</li>
                   <li>Sunday Morning Service: 10:45 AM</li>
-                  <li>Choir Practice: 4:30 PM</li>
                   <li>Sunday Evening Service: 5:00 PM</li>
                   <br />
                   <li>Wednesday Fellowship Dinner: 6:00 PM</li>
                   <li>Wednesday Kid's Program: 6:30 PM</li>
-                  <li>Wednesday Adult Bible Study: 7:00 PM</li>
+                  <li>Wednesday Adult Bible Study: 6:45 PM</li>
                 </ul>
               </div>
 

@@ -14,7 +14,7 @@ export default function ChildrensMinistry() {
             animate={{ opacity: 1, y: 0 }}
             className="font-playfair text-4xl md:text-5xl mb-4"
           >
-            Children's Ministry
+            New Canaan Kids
           </motion.h1>
           <motion.p
             initial={{ opacity: 0, y: 20 }}
@@ -31,11 +31,12 @@ export default function ChildrensMinistry() {
       <section className="py-16 px-4">
         <div className="max-w-4xl mx-auto">
           <div className="prose prose-lg">
-            <h2 className="font-playfair text-3xl text-primary mb-6">Welcome to Our Children's Ministry</h2>
+            <h2 className="font-playfair text-3xl text-primary mb-6">Welcome to New Canaan Kids</h2>
             <p>
               At New Canaan Baptist Church, we believe that children are not just the future of the church—they are an important part of our church today. Our Children's Ministry provides a safe, nurturing environment where children can learn about God's love and develop a strong foundation in their faith. <strong>Nursery is provided for all services for children 4 and under.</strong>
             </p>
 
+            {/* 
             <div className="my-8">
               <Image
                 src="/images/kids-2.jpg"
@@ -45,6 +46,7 @@ export default function ChildrensMinistry() {
                 className="rounded-lg shadow-lg"
               />
             </div>
+            */}
 
             <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">What We Offer</h3>
             <ul>
@@ -68,13 +70,13 @@ export default function ChildrensMinistry() {
 
             <h3 className="font-playfair text-2xl text-primary mt-8 mb-4">Get Involved</h3>
             <p>
-              We welcome parents to get involved in our Children's Ministry. Whether you'd like to volunteer, have questions, or want to learn more about our programs, please contact us.
+              We welcome parents to get involved in New Canaan Kids. Whether you'd like to volunteer, have questions, or want to learn more about our programs, please contact us.
             </p>
 
             <div className="bg-gray-50 p-6 rounded-lg mt-8">
-              <h4 className="font-playfair text-xl text-primary mb-4">Contact Children's Ministry</h4>
+              <h4 className="font-playfair text-xl text-primary mb-4">Contact New Canaan Kids</h4>
               <p>
-                For more information about our Children's Ministry, please contact:<br />
+                For more information about New Canaan Kids, please contact:<br />
                 Phone: (770) 962-2335<br />
                 Email: pastor@mynewcanaan.org
               </p>

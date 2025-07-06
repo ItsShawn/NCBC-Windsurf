@@ -110,13 +110,13 @@ export default function Home() {
           <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
             {[
               {
-                title: "Children's Ministry",
-                image: "kids-1.jpg",
+                title: "New Canaan Kids",
+                image: "/new-canaan-kids.png",
                 description: "Building strong foundations of faith every Sunday morning through engaging Bible lessons and activities"
               },
               {
                 title: "Community Prayer Gathering",
-                image: "kids-2.jpg",
+                image: "/community-prayer-partners.png",
                 description: "Join us every Wednesday at noon as we come together as a community to pray, share, and support one another"
               },
               {

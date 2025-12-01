@@ -5,21 +5,34 @@ import { useState, useEffect } from 'react';
 import Image from 'next/image';
 import ContactSection from '@/components/ContactSection';
 import Link from 'next/link';
+import Sing2025Modal from '@/components/Sing2025Modal';
 
 const rotatingWords = ["Loves", "Prays", "Forgives", "Welcomes", "Cares"];
 
 export default function Home() {
   const [wordIndex, setWordIndex] = useState(0);
+  const [isModalOpen, setIsModalOpen] = useState(false);
 
   useEffect(() => {
     const interval = setInterval(() => {
       setWordIndex((prev) => (prev + 1) % rotatingWords.length);
     }, 3000);
-    return () => clearInterval(interval);
+
+    // Open the modal automatically after a short delay
+    const timer = setTimeout(() => {
+      setIsModalOpen(true);
+    }, 1500); // 1.5-second delay
+
+    return () => {
+      clearInterval(interval);
+      clearTimeout(timer);
+    };
   }, []);
 
   return (
     <main className="min-h-screen">
+      <Sing2025Modal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+
       {/* Hero Section */}
       <section className="relative h-screen">
         <div className="absolute inset-0">

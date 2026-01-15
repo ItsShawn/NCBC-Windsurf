@@ -2,10 +2,9 @@
 const nextConfig = {
   output: 'export',
   images: {
-    unoptimized: true
+    unoptimized: true,
   },
-  reactStrictMode: true,
-  swcMinify: true,
-}
+  trailingSlash: true,
+};
 
-module.exports = nextConfig
+module.exports = nextConfig;

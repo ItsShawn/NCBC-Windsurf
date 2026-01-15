@@ -50,7 +50,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/abou/beliefs" className="hover:text-secondary transition-colors">
+                <Link href="/about/beliefs" className="hover:text-secondary transition-colors">
                   Our Beliefs
                 </Link>
               </li>

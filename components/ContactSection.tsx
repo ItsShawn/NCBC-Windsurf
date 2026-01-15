@@ -7,33 +7,55 @@ export default function ContactSection() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
-    message: ''
+    message: '',
+    botField: '' // honeypot for spam
   });
+
   const [status, setStatus] = useState<'idle' | 'loading' | 'success' | 'error'>('idle');
   const [errorMessage, setErrorMessage] = useState('');
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+
+    // Honeypot: if this has any value, it's a bot
+    if (formData.botField !== '') {
+      return;
+    }
+
     setStatus('loading');
     setErrorMessage('');
 
     try {
-      const response = await fetch('/api/submit-contact', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify(formData),
-      });
+      const response = await fetch(
+        'https://formsubmit.co/ajax/newcanaan1976@gmail.com',
+        {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+            Accept: 'application/json',
+          },
+          body: JSON.stringify({
+            name: formData.name,
+            email: formData.email,
+            message: formData.message,
+            _subject: 'New Contact Message from mynewcanaan.org',
+            _template: 'box',
+            _honey: formData.botField, // FormSubmit honeypot field
+            _captcha: 'false',
+          }),
+        }
+      );
 
       if (!response.ok) {
-        throw new Error('Failed to send message');
+        throw new Error('FormSubmit request failed');
       }
 
       setStatus('success');
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setStatus('idle'), 5000);
-    } catch (error) {
+      setFormData({ name: '', email: '', message: '', botField: '' });
+
+      setTimeout(() => setStatus('idle'), 4000);
+    } catch (err) {
+      console.error(err);
       setStatus('error');
       setErrorMessage('Failed to send message. Please try again later.');
     }
@@ -51,10 +73,29 @@ export default function ContactSection() {
           <div className="grid md:grid-cols-2 gap-8 p-8">
             {/* Contact Form */}
             <div>
-              <h2 className="font-playfair text-3xl text-primary mb-6">Contact Us</h2>
+              <h2 className="font-playfair text-3xl text-primary mb-6">
+                Contact Us
+              </h2>
+
               <form onSubmit={handleSubmit} className="space-y-6">
+                {/* Hidden honeypot field for bots */}
+                <input
+                  type="text"
+                  name="botField"
+                  value={formData.botField}
+                  onChange={(e) =>
+                    setFormData({ ...formData, botField: e.target.value })
+                  }
+                  className="hidden"
+                  autoComplete="off"
+                  tabIndex={-1}
+                />
+
                 <div>
-                  <label htmlFor="name" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="name"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Name
                   </label>
                   <input
@@ -63,12 +104,18 @@ export default function ContactSection() {
                     id="name"
                     required
                     value={formData.name}
-                    onChange={(e) => setFormData({ ...formData, name: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, name: e.target.value })
+                    }
                     className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="email" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="email"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Email
                   </label>
                   <input
@@ -77,12 +124,18 @@ export default function ContactSection() {
                     id="email"
                     required
                     value={formData.email}
-                    onChange={(e) => setFormData({ ...formData, email: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, email: e.target.value })
+                    }
                     className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
+
                 <div>
-                  <label htmlFor="message" className="block text-sm font-medium text-gray-700">
+                  <label
+                    htmlFor="message"
+                    className="block text-sm font-medium text-gray-700"
+                  >
                     Message
                   </label>
                   <textarea
@@ -91,23 +144,29 @@ export default function ContactSection() {
                     rows={4}
                     required
                     value={formData.message}
-                    onChange={(e) => setFormData({ ...formData, message: e.target.value })}
+                    onChange={(e) =>
+                      setFormData({ ...formData, message: e.target.value })
+                    }
                     className="mt-1 block w-full rounded-md border border-gray-300 px-3 py-2 shadow-sm focus:border-primary focus:outline-none focus:ring-1 focus:ring-primary"
                   />
                 </div>
+
                 {status === 'error' && (
                   <div className="text-red-600 text-sm">{errorMessage}</div>
                 )}
                 {status === 'success' && (
-                  <div className="text-green-600 text-sm">Message sent successfully!</div>
+                  <div className="text-green-600 text-sm">
+                    Message sent successfully!
+                  </div>
                 )}
+
                 <div>
                   <button
                     type="submit"
                     disabled={status === 'loading'}
                     className={`w-full ${
-                      status === 'loading' 
-                        ? 'bg-gray-400 cursor-not-allowed' 
+                      status === 'loading'
+                        ? 'bg-gray-400 cursor-not-allowed'
                         : 'bg-primary hover:bg-primary-dark'
                     } text-white px-4 py-2 rounded-md focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2`}
                   >
@@ -117,49 +176,43 @@ export default function ContactSection() {
               </form>
             </div>
 
-            {/* Contact Information */}
+            {/* Contact Information (unchanged) */}
             <div className="space-y-8">
               <div>
-                <h3 className="font-playfair text-xl text-primary mb-4">Service Times</h3>
+                <h3 className="font-playfair text-xl text-primary mb-4">
+                  Service Times
+                </h3>
                 <ul className="space-y-2 text-gray-600">
                   <li>Sunday School: 9:45 AM</li>
                   <li>Sunday Morning Service: 10:45 AM</li>
                   <li>Sunday Evening Service: 5:00 PM</li>
                   <br />
                   <li>Wednesday Fellowship Dinner: 6:00 PM</li>
-                  <li>Wednesday Kid's Program: 6:30 PM</li>
+                  <li>Wednesday Kid&apos;s Program: 6:30 PM</li>
                   <li>Wednesday Adult Bible Study: 6:45 PM</li>
                 </ul>
               </div>
 
               <div>
-                <h3 className="font-playfair text-xl text-primary mb-4">Location</h3>
+                <h3 className="font-playfair text-xl text-primary mb-4">
+                  Location
+                </h3>
                 <p className="text-gray-600">
-                  922 Hi Hope Road<br />
+                  922 Hi Hope Road
+                  <br />
                   Lawrenceville, GA 30043
                 </p>
               </div>
 
               <div>
-                <h3 className="font-playfair text-xl text-primary mb-4">Contact</h3>
+                <h3 className="font-playfair text-xl text-primary mb-4">
+                  Contact
+                </h3>
                 <ul className="space-y-2 text-gray-600">
                   <li>Pastor Michael Soop</li>
                   <li>Phone: (770) 962-2335</li>
                   <li>Email: pastor@mynewcanaan.org</li>
                 </ul>
-              </div>
-
-              <div>
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3310.2856067437164!2d-83.9892!3d33.9892!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88f5bf55555555%3A0x555555555555555!2s922%20Hi%20Hope%20Rd%2C%20Lawrenceville%2C%20GA%2030043!5e0!3m2!1sen!2sus!4v1551234567890!5m2!1sen!2sus"
-                  width="100%"
-                  height="200"
-                  style={{ border: 0 }}
-                  allowFullScreen
-                  loading="lazy"
-                  referrerPolicy="no-referrer-when-downgrade"
-                  className="rounded-lg"
-                />
               </div>
             </div>
           </div>

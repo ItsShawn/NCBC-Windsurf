@@ -17,7 +17,7 @@ const navigation = [
     href: '#',
     dropdown: true,
     items: [
-      { name: 'Who We Are', href: '/about' },
+      { name: 'Who We Are', href: '/about/who-we-are' },
       { name: 'What to Wear', href: '/about/what-to-wear' },
       { name: 'Our Beliefs', href: '/about/beliefs' }
     ]
